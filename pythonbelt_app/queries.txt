@@ -1,0 +1,16 @@
+user1= User.objects.create(first_name="Harry", last_name="Potter", email="hpotter@gmail.com", password=11111111)
+user2= User.objects.create(first_name="Larry", last_name="King", email="lking@gmail.com", password=11111111)
+user3= User.objects.create(first_name="Dave", last_name="Ramsey", email="sgomez@gmail.com", password=11111111)
+user4= User.objects.create(first_name="Kris", last_name="Smith", email="ksmith@gmail.com", password=11111111)
+
+trip1=Trip.objects.create(name="Nashville Tennessee", start_date="2020-03-19", end_date="2019-04-28", plan="Go To Wrestle Mania", creator=User.objects.get(id=2))
+trip2=Trip.objects.create(name="Paris France",start_date="2020-06-15", end_date="2019-10-25", plan="Cheese Tour",creator=User.objects.get(id=3))
+trip3=Trip.objects.create(name="Bali Indonesia", start_date="2020-08-27", end_date="2019-09-04",plan="Burning Man", creator=User.objects.get(id=1))
+trip4=Trip.objects.create(name="Cuzco Peru", start_date="2020-01-01",end_date="2019-04-12", plan="Hiking",creator=User.objects.get(id=4))
+trip5=Trip.objects.create(name="Black Rock Nevada",start_date="2020-11-22", end_date="2019-01-22", plan="Views",creator=User.objects.get(id=2))
+
+Trip.objects.get(id=1).travelor.add(User.objects.get(id=2))
+Trip.objects.get(id=2).travelor.add(User.objects.get(id=3))
+Trip.objects.get(id=2).travelor.add(User.objects.get(id=1))
+Trip.objects.get(id=3).travelor.add(User.objects.get(id=4))
+Trip.objects.get(id=5).travelor.add(User.objects.get(id=1))
